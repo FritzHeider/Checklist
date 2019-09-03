@@ -20,7 +20,23 @@ def list_all_items():
         index += 1
 
 def mark_completed(index):
-    checklist[index] = ("√" + checklist[index])
+    item = checklist[index]
+
+    if item[0] != "√" :
+        checklist[index] = "√ " + checklist[index]
+        return("\nCheck Marked.")
+    else:
+        return('\nAlready marked complete')
+
+def mark_incomplete(index):
+    item = checklist[index]
+
+    if item[0] == "√":
+        incompleted_item = item.replace("√ ", "")
+        checklist[index] = incompleted_item
+        return("\n Marked Incomplete.")
+    else:
+        return("\n Already Marked Incomplete.")
 
 def test():
     create("purple sox")
@@ -31,13 +47,7 @@ def test():
 
     update(0, "purple socks")
     destroy(1)
-
-    print(read(0))
-    #print(read(1))
+    mark_completed(0)
+    print(checklist)
 
 test()
-print (checklist[1])
-mark_completed(1)
-print (checklist[1])
-
-list_all_items()
