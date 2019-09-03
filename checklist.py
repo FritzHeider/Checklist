@@ -1,17 +1,24 @@
 checklist = list()
 
+#simply append strings onto the main checklist
 def create(item):
     checklist.append(item)
 
+#returns the places value
 def read(index):
     return checklist[index]
 
+
+#takes two parameters one for the placement and the second with the change
 def update(index, item):
     checklist[index] = item
 
+
+#regularly pops off the end of the list unless specified
 def destroy(index):
     checklist.pop(index)
 
+#it wanted to make sure i had the index listed as a stirng
 def list_all_items():
     index = 0
     for list_item in checklist:
@@ -19,6 +26,8 @@ def list_all_items():
         print("{} {}".format(index, list_item))
         index += 1
 
+
+#this was very tricky for the all the logic behind it but i truly think i understand it now
 def mark_completed(index):
     item = checklist[index]
 
@@ -38,16 +47,18 @@ def mark_incomplete(index):
     else:
         return("\n Already Marked Incomplete.")
 
+def list_all_items():
+    index = 0
+    for list_item in checklist:
+        print(str(index) + list_item)
+        index += 1
+
+
 def test():
-    create("purple sox")
-    create("red cloak")
-
-    print(read(0))
-    print(read(1))
-
-    update(0, "purple socks")
-    destroy(1)
-    mark_completed(0)
-    print(checklist)
+    create("socks")
+    create("shoes")
+    list_all_items()
 
 test()
+
+print(checklist)
