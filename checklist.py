@@ -82,6 +82,7 @@ def test():
     update(1,'Orange Hat')
     update(2,'Pink Shirt ')
 
+    destroy(0)
     
     print(read(0))
     list_all_items()
