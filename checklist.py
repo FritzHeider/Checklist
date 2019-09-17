@@ -27,7 +27,7 @@ def list_all_items():
 
 # Mark Complete
 def mark_completed(index):
-    print("√" + str(checklist[index]))
+    update(index, "√" + read(index))
 
 def user_input(prompt):
     #the input function displays the prompt
@@ -70,5 +70,23 @@ running = True
 while running:
     selection = user_input(
         "Press C to add to list, R to read from list, U to update list, "
-        "\nD to destroy list, P to display full list, and Q to quit\n")
+        "\nD to destroy list, P to display full list, M to mark something and Q to quit\n")
     running = select(selection)
+
+def test():
+    create('Red Shoes')
+    create('Blue Socks')
+    create('Pink Shirt')
+
+    update(0,'Red Shoes ')
+    update(1,'Orange Hat')
+    update(2,'Pink Shirt ')
+
+    
+    print(read(0))
+    list_all_items()
+    mark_completed(0)
+
+    print(read(0))
+
+test()
